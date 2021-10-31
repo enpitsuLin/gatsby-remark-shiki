@@ -36,20 +36,20 @@ Add to your `gatsby-config.ts`
 
 Then you can write code in your markdown file like this:
 
-> ```
-> ```javascript
-> function funName() {
->   console.log("this is a code snippet");
-> }
-> ```
-> ```
+````
+```javascript
+function funName() {
+  console.log("this is a code snippet");
+}
+```
+````
 
 # Todo
 
 - [ ] Plugin Options
-  - [ ] Multi-theme support
-  - [ ] Use shiki theme `css-variables` to custom theme
-  - [ ] ...
+- [ ] Multi-theme support
+- [ ] Use shiki theme `css-variables` to custom theme
+- [ ] ...
 - [ ] Render LaTeX
 - [ ] Display line numbers
 - [ ] Diff highlighting
@@ -67,3 +67,7 @@ Then you can write code in your markdown file like this:
 # License
 
 MIT © [enpitsuLin](https://github.com/enpitsuLin)
+
+```
+
+```
