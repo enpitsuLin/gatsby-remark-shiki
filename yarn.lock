@@ -1630,27 +1630,27 @@ unicode-property-aliases-ecmascript@^2.0.0:
   resolved "https://registry.nlark.com/unicode-property-aliases-ecmascript/download/unicode-property-aliases-ecmascript-2.0.0.tgz?cache=0&sync_timestamp=1631609408629&other_urls=https%3A%2F%2Fregistry.nlark.com%2Funicode-property-aliases-ecmascript%2Fdownload%2Funicode-property-aliases-ecmascript-2.0.0.tgz#0a36cb9a585c4f6abd51ad1deddb285c165297c8"
   integrity sha1-CjbLmlhcT2q9Ua0d7dsoXBZSl8g=
 
-unist-util-is@^5.0.0:
-  version "5.1.1"
-  resolved "https://registry.nlark.com/unist-util-is/download/unist-util-is-5.1.1.tgz#e8aece0b102fa9bc097b0fef8f870c496d4a6236"
-  integrity sha1-6K7OCxAvqbwJew/vj4cMSW1KYjY=
-
-unist-util-visit-parents@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.nlark.com/unist-util-visit-parents/download/unist-util-visit-parents-5.1.0.tgz#44bbc5d25f2411e7dfc5cecff12de43296aa8521"
-  integrity sha1-RLvF0l8kEeffxc7P8S3kMpaqhSE=
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-
-unist-util-visit@^4.1.0:
+unist-util-is@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.npmmirror.com/unist-util-visit/download/unist-util-visit-4.1.0.tgz?cache=0&sync_timestamp=1632405194557&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Funist-util-visit%2Fdownload%2Funist-util-visit-4.1.0.tgz#f41e407a9e94da31594e6b1c9811c51ab0b3d8f5"
-  integrity sha1-9B5Aep6U2jFZTmscmBHFGrCz2PU=
+  resolved "https://registry.nlark.com/unist-util-is/download/unist-util-is-4.1.0.tgz#976e5f462a7a5de73d94b706bac1b90671b57797"
+  integrity sha1-l25fRip6Xec9lLcGusG5BnG1d5c=
+
+unist-util-visit-parents@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.nlark.com/unist-util-visit-parents/download/unist-util-visit-parents-3.1.1.tgz#65a6ce698f78a6b0f56aa0e88f13801886cdaef6"
+  integrity sha1-ZabOaY94prD1aqDojxOAGIbNrvY=
   dependencies:
     "@types/unist" "^2.0.0"
-    unist-util-is "^5.0.0"
-    unist-util-visit-parents "^5.0.0"
+    unist-util-is "^4.0.0"
+
+unist-util-visit@^2.0.1:
+  version "2.0.3"
+  resolved "https://registry.npmmirror.com/unist-util-visit/download/unist-util-visit-2.0.3.tgz?cache=0&sync_timestamp=1632405194557&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Funist-util-visit%2Fdownload%2Funist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
+  integrity sha1-w3A4kxRt9HIDu4qXla9H17lxIIw=
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^4.0.0"
+    unist-util-visit-parents "^3.0.0"
 
 vscode-textmate@5.2.0:
   version "5.2.0"
