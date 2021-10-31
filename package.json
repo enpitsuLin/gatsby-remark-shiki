@@ -16,14 +16,17 @@
     "shiki"
   ],
   "scripts": {
-    "build": "babel src --out-dir dist --extensions .ts",
+    "build": "babel src --out-dir dist --extensions .ts,.tsx",
     "build:type": "tsc",
-    "dev": "babel -w src --out-dir dist --extensions .ts"
+    "dev": "babel -w src --out-dir dist --extensions .ts,.tsx"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
+    "@types/react-dom": "^17.0.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "typescript": "^4.4.4"
   },
   "dependencies": {

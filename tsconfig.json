@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "commonjs",
     "declaration": true,
+    "jsx": "preserve",
     "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
