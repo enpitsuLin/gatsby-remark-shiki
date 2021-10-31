@@ -7,6 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "declarationDir": "dist"
-  }
+    "declarationDir": "dist",
+    "rootDir": "."
+  },
+  "include": ["src"]
 }
