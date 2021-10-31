@@ -36,10 +36,12 @@ Add to your `gatsby-config.ts`
 
 Then you can write code in your mark down file like this:
 
+> ```
 > ```javascript
 > function funName() {
 >   console.log("this is a code snippet");
 > }
+> ```
 > ```
 
 # Todo
