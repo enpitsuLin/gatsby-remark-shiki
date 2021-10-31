@@ -1,5 +1,5 @@
 import React from "react";
-import { renderToString } from "react-dom/server";
+import { renderToStaticMarkup } from "react-dom/server";
 import { FontStyle, IThemedToken } from "shiki";
 
 export interface HtmlRendererOptions {
@@ -55,5 +55,5 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
     </pre>
   );
 
-  return renderToString(node);
+  return renderToStaticMarkup(node);
 }
