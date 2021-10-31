@@ -47,9 +47,9 @@ function funName() {
 # Todo
 
 - [ ] Plugin Options
-- [ ] Multi-theme support
-- [ ] Use shiki theme `css-variables` to custom theme
-- [ ] ...
+  - [ ] Multi-theme support
+  - [ ] Use shiki theme `css-variables` to custom theme
+  - [ ] ...
 - [ ] Render LaTeX
 - [ ] Display line numbers
 - [ ] Diff highlighting
@@ -67,7 +67,3 @@ function funName() {
 # License
 
 MIT © [enpitsuLin](https://github.com/enpitsuLin)
-
-```
-
-```
