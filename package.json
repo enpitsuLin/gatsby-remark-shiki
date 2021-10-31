@@ -1,7 +1,7 @@
 {
   "name": "@enpitsulin/gatsby-remark-shiki",
   "description": "Adds syntax highlighting to code blocks with gatsby-transform-remark by using shiki",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "typing": "index.d.ts",
   "license": "MIT",
@@ -18,17 +18,18 @@
   "scripts": {
     "build": "babel src --out-dir dist --extensions .ts",
     "build:type": "tsc",
-    "dev": "babel -w src --out-dir dist --extensions .ts"
+    "dev": "babel -w src --out-dir dist --extensions .ts",
+    "publish": "npm run build:type&&npm publish --access=public"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "shiki": "^0.9.12",
-    "typescript": "^4.4.4",
-    "unist-util-visit": "^2.0.1"
+    "typescript": "^4.4.4"
   },
   "dependencies": {
-    "babel-preset-gatsby-package": "^2.0.0"
+    "babel-preset-gatsby-package": "^2.0.0",
+    "shiki": "^0.9.12",
+    "unist-util-visit": "^2.0.1"
   }
 }
