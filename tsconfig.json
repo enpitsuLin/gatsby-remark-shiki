@@ -6,6 +6,7 @@
     "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declarationDir": "dist"
   }
 }
