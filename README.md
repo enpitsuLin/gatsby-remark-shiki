@@ -34,7 +34,7 @@ Add to your `gatsby-config.ts`
 }
 ```
 
-Then you can write code in your mark down file like this:
+Then you can write code in your markdown file like this:
 
 > ```
 > ```javascript
