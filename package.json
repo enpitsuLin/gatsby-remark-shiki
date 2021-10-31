@@ -1,7 +1,7 @@
 {
   "name": "@enpitsulin/gatsby-remark-shiki",
   "description": "Adds syntax highlighting to code blocks with gatsby-transform-remark by using shiki",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "typing": "index.d.ts",
   "license": "MIT",
