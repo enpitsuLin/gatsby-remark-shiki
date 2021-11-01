@@ -4,6 +4,7 @@
     "module": "commonjs",
     "declaration": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
     "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

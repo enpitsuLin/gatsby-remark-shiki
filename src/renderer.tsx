@@ -1,6 +1,7 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
+import render from "preact-render-to-string";
+import { h } from "preact";
 import { FontStyle, IThemedToken } from "shiki";
+/** @jsx h */
 
 export interface HtmlRendererOptions {
   langId?: string;
@@ -9,20 +10,20 @@ export interface HtmlRendererOptions {
   classPrefix?: string;
 }
 
-const defaultPreStyle = (bg): React.CSSProperties => ({
+const defaultPreStyle = (bg): h.JSX.CSSProperties => ({
   backgroundColor: bg,
-  padding: "0.75rem",
+  padding: "0.75rem 0.75rem",
   borderRadius: "0.25rem",
-  position: "relative"
+  overflow: "auto"
 });
 
-const defaultToolbarStyle: React.CSSProperties = {
+const defaultToolbarStyle: h.JSX.CSSProperties = {
   display: "flex",
   position: "absolute",
   right: 0,
   top: 0,
   color: "#eee",
-  backgroundColor: "#393939",
+  backgroundColor: "#393939aa",
   padding: "0.125rem 0.425rem",
   borderRadius: "0.125rem"
 };
@@ -31,7 +32,7 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
   const { bg = "#fff", langId = "", classPrefix } = options;
   const randomId = Math.floor(Math.random() * 65535);
   let node = (
-    <pre className={`${classPrefix}${langId}`} style={defaultPreStyle(bg)}>
+    <div className="shiki" style={{ position: "relative", paddingTop: "0.75rem" }}>
       <div className="toolbar" style={defaultToolbarStyle}>
         {langId && (
           <div className="language-id" style={{}}>
@@ -44,31 +45,33 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
           </button>
         </div>
       </div>
-      <code className="code" style={{ overflow: "auto" }} id={`code-${randomId}`}>
-        {lines.map((l: IThemedToken[]) => (
-          <div key={l.toString()} className="line">
-            {l.map((token) => {
-              const cssDeclarations: React.CSSProperties = { color: token.color || options.fg };
-              if (token.fontStyle & FontStyle.Italic) {
-                cssDeclarations.fontStyle = "italic";
-              }
-              if (token.fontStyle & FontStyle.Bold) {
-                cssDeclarations.fontWeight = "bold";
-              }
-              if (token.fontStyle & FontStyle.Underline) {
-                cssDeclarations.textDecoration = "underline";
-              }
-              return (
-                <span key={token.content} style={cssDeclarations}>
-                  {token.content}
-                </span>
-              );
-            })}
-          </div>
-        ))}
-      </code>
-    </pre>
+      <pre className={`${classPrefix}${langId}`} style={defaultPreStyle(bg)}>
+        <code className="code" id={`code-${randomId}`}>
+          {lines.map((l: IThemedToken[]) => (
+            <div key={l.toString()} className="line">
+              {l.map((token) => {
+                const cssDeclarations: h.JSX.CSSProperties = { color: token.color || options.fg };
+                if (token.fontStyle & FontStyle.Italic) {
+                  cssDeclarations.fontStyle = "italic";
+                }
+                if (token.fontStyle & FontStyle.Bold) {
+                  cssDeclarations.fontWeight = "bold";
+                }
+                if (token.fontStyle & FontStyle.Underline) {
+                  cssDeclarations.textDecoration = "underline";
+                }
+                return (
+                  <span key={token.content} style={cssDeclarations}>
+                    {token.content}
+                  </span>
+                );
+              })}
+            </div>
+          ))}
+        </code>
+      </pre>
+    </div>
   );
 
-  return renderToString(node);
+  return render(node);
 }
