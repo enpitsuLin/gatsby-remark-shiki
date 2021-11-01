@@ -13,7 +13,8 @@ const defaultPreStyle = (bg): React.CSSProperties => ({
   backgroundColor: bg,
   padding: "0.75rem",
   borderRadius: "0.25rem",
-  position: "relative"
+  position: "relative",
+  overflow: "auto"
 });
 
 const defaultToolbarStyle: React.CSSProperties = {
