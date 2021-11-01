@@ -3,6 +3,8 @@ import { h } from "preact";
 import { FontStyle, IThemedToken } from "shiki";
 /** @jsx h */
 
+type CSSProperties = h.JSX.CSSProperties;
+
 export interface HtmlRendererOptions {
   langId?: string;
   fg?: string;
@@ -10,18 +12,17 @@ export interface HtmlRendererOptions {
   classPrefix?: string;
 }
 
-const defaultPreStyle = (bg): h.JSX.CSSProperties => ({
+const defaultPreStyle = (bg): CSSProperties => ({
   backgroundColor: bg,
   padding: "0.75rem 0.75rem",
   borderRadius: "0.25rem",
   overflow: "auto"
 });
 
-const defaultToolbarStyle: h.JSX.CSSProperties = {
+const defaultToolbarStyle: CSSProperties = {
   display: "flex",
   position: "absolute",
   right: 0,
-  top: 0,
   color: "#eee",
   backgroundColor: "#393939aa",
   padding: "0.125rem 0.425rem",
@@ -50,7 +51,7 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
           {lines.map((l: IThemedToken[]) => (
             <div key={l.toString()} className="line">
               {l.map((token) => {
-                const cssDeclarations: h.JSX.CSSProperties = { color: token.color || options.fg };
+                const cssDeclarations: CSSProperties = { color: token.color || options.fg };
                 if (token.fontStyle & FontStyle.Italic) {
                   cssDeclarations.fontStyle = "italic";
                 }
