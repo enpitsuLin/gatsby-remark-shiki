@@ -1,4 +1,4 @@
-# Gatsby-remark-shiki
+# gatsby-remark-shiki
 
 [![npm](https://badgen.net/npm/v/@enpitsulin/gatsby-remark-shiki)](https://www.npmjs.com/package/@enpitsulin/gatsby-remark-shiki)
 
@@ -14,7 +14,7 @@ npm install @enpitsulin/gatsby-remark-shiki
 yarn add @enpitsulin/gatsby-remark-shiki
 ```
 
-Add to your `gatsby-config.ts`
+Add to your `gatsby-config.js`
 
 ```javascript
 {
@@ -23,8 +23,21 @@ Add to your `gatsby-config.ts`
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
+        `@enpitsulin/gatsby-remark-shiki`,
+      ]
+    }
+  ]
+}
+// or
+{
+  // ...
+  plugins:[
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
         {
           resolve: `@enpitsulin/gatsby-remark-shiki`,
+          options: {/* here for custom option */}
         }
       ]
     }
@@ -44,15 +57,15 @@ function funName() {
 
 # Options
 
-You can configuration the plugin option
+You can configure the plugin option to change theme or alias a language
 
 # Multi Theme Support
 
-You can change code highlight style by change theme option.
+You can use built-in code highlight theme by change theme option, for example.
 
 ```javascript
 {
-  theme: "nord";
+  theme: "one-dark-pro"; //default 'nord';
 }
 ```
 
@@ -84,6 +97,7 @@ First change theme option to `css-variables`,than create css which define these 
 ```
 
 ```javascript
+// gatsby-browser.js
 require("path/to/shiki-variables.css");
 ```
 
@@ -107,12 +121,8 @@ This lets you set up language aliases. For example, settings below will let you 
 - [ ] Render LaTeX
 - [ ] Display line numbers
 - [ ] Diff highlighting
-- [ ] Code copy
-- [ ] Maybe more...
-
-# Options
-
-> To do
+- [x] Code copy
+  - [ ] Code copy for options
 
 # Contributing
 
