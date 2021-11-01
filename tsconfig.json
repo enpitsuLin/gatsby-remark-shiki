@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "declarationDir": "dist",
-    "rootDir": "."
+    "rootDir": "./src/"
   },
   "include": ["src"]
 }
