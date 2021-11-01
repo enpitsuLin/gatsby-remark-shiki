@@ -13,8 +13,7 @@ const defaultPreStyle = (bg): React.CSSProperties => ({
   backgroundColor: bg,
   padding: "0.75rem",
   borderRadius: "0.25rem",
-  position: "relative",
-  overflow: "auto"
+  position: "relative"
 });
 
 const defaultToolbarStyle: React.CSSProperties = {
@@ -45,7 +44,7 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
           </button>
         </div>
       </div>
-      <code className="code" id={`code-${randomId}`}>
+      <code className="code" style={{ overflow: "auto" }} id={`code-${randomId}`}>
         {lines.map((l: IThemedToken[]) => (
           <div key={l.toString()} className="line">
             {l.map((token) => {
