@@ -91,7 +91,7 @@ require("path/to/shiki-variables.css");
 
 # Language Alias
 
-This lets you set up language aliases. For example, settings below will let you use the language `superscript` which will highlight using the bash highlighter
+This lets you set up language aliases. For example, settings below will let you use the language `superscript` which will highlight using the `javascript` highlighter
 
 ```javascript
 {
