@@ -44,12 +44,68 @@ function funName() {
 ```
 ````
 
+# Options
+
+You can configuration the plugin option
+
+# Multi Theme Support
+
+You can change code highlight style by change theme option.
+
+```javascript
+{
+  theme: "nord";
+}
+```
+
+You can preview some of these themes on [https://vscodethemes.com/](https://vscodethemes.com/)
+
+## Theming with theme file
+
+To Do
+
+## Theming with CSS variables
+
+First change theme option to `css-variables`,than create css which define these CSS variables file and require it in your `gatsby-browser.js`, e.g.
+
+```css
+/* shiki-variables */
+:root {
+  --shiki-color-text: #eeeeee;
+  --shiki-color-background: #333333;
+  --shiki-token-constant: #660000;
+  --shiki-token-string: #770000;
+  --shiki-token-comment: #880000;
+  --shiki-token-keyword: #990000;
+  --shiki-token-parameter: #aa0000;
+  --shiki-token-function: #bb0000;
+  --shiki-token-string-expression: #cc0000;
+  --shiki-token-punctuation: #dd0000;
+  --shiki-token-link: #ee0000;
+}
+```
+
+```javascript
+require("path/to/shiki-variables.css");
+```
+
+# Language Alias
+
+This lets you set up language aliases. For example, settings below will let you use the language `superscript` which will highlight using the bash highlighter
+
+```javascript
+{
+  aliases: {
+    superscript: "javascript";
+  }
+}
+```
+
 # Todo
 
 - [ ] Plugin Options
-  - [ ] Multi-theme support
-  - [ ] Use shiki theme `css-variables` to custom theme
-  - [ ] ...
+  - [x] Multi-theme support
+  - [x] Use shiki theme `css-variables` to custom theme
 - [ ] Render LaTeX
 - [ ] Display line numbers
 - [ ] Diff highlighting
