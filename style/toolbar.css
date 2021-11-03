@@ -1,0 +1,18 @@
+/** 
+ * default style sheets for gatsby-remark-shiki 
+ * only for set toolbar layout
+ * @author enpitsulin
+ */
+
+.shiki {
+  position: relative;
+}
+
+.shiki-toolbar {
+  display: flex;
+  position: absolute;
+  right: 0;
+  background-color: #393939aa;
+  padding: 0.125rem 0.425rem;
+  border-radius: 0.125rem;
+}
