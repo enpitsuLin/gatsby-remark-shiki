@@ -9,6 +9,7 @@ export interface Options {
   aliases: {
     [lang: string]: Lang;
   };
+  langId: boolean | { show: boolean; component?: React.ComponentType };
 }
 
 export interface RemarkNode extends Node {
@@ -18,7 +19,10 @@ export interface RemarkNode extends Node {
   children: Node[];
 }
 
-export default async ({ markdownAST }: any, { theme = "nord", classPrefix = "language-", aliases = {} }: Options) => {
+export default async (
+  { markdownAST }: any,
+  { theme = "nord", classPrefix = "language-", aliases = {}, langId = true }: Options
+) => {
   /**
    * get aliases language name
    */
@@ -41,6 +45,6 @@ export default async ({ markdownAST }: any, { theme = "nord", classPrefix = "lan
       node.value = `<pre class="shiki-unknown"><code>${code}</code></pre>`;
     }
     // langId for before alias
-    node.value = renderToHtml(token, { langId: node.lang, fg, bg, classPrefix });
+    node.value = renderToHtml(token, { langId: langId ? node.lang : null, fg, bg, classPrefix });
   });
 };

@@ -1,78 +1,43 @@
-import render from "preact-render-to-string";
-import { h } from "preact";
-import { FontStyle, IThemedToken } from "shiki";
-/** @jsx h */
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { IThemedToken } from "shiki";
+import CodeBlock from "./component/CodeBlock";
+import CopyButton from "./component/CopyButton";
+import LanguageId from "./component/LanguageId";
+import ToolBar from "./component/ToolBar";
 
-type CSSProperties = h.JSX.CSSProperties;
+type CSSProperties = React.CSSProperties;
 
 export interface HtmlRendererOptions {
+  classPrefix?: string;
   langId?: string;
   fg?: string;
   bg?: string;
-  classPrefix?: string;
 }
 
-const defaultPreStyle = (bg): CSSProperties => ({
+const defaultPreStyle = (bg, fg): CSSProperties => ({
   backgroundColor: bg,
+  color: fg,
   padding: "0.75rem 0.75rem",
   borderRadius: "0.25rem",
   overflow: "auto"
 });
 
-const defaultToolbarStyle: CSSProperties = {
-  display: "flex",
-  position: "absolute",
-  right: 0,
-  color: "#eee",
-  backgroundColor: "#393939aa",
-  padding: "0.125rem 0.425rem",
-  borderRadius: "0.125rem"
-};
-
 export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptions = {}) {
-  const { bg = "#fff", langId = "", classPrefix } = options;
+  const { bg = "#fff", fg = "#000", langId = "", classPrefix } = options;
   const randomId = Math.floor(Math.random() * 65535);
-  let node = (
+
+  const node = (
     <div className="shiki" style={{ position: "relative", paddingTop: "0.75rem" }}>
-      <div className="toolbar" style={defaultToolbarStyle}>
-        {langId && (
-          <div className="language-id" style={{}}>
-            {langId}
-          </div>
-        )}
-        <div className="copy-button" style={{ marginLeft: "0.45rem" }}>
-          <button className="copy-btn" data-clipboard-target={`#code-${randomId}`}>
-            copy
-          </button>
-        </div>
-      </div>
-      <pre className={`${classPrefix}${langId}`} style={defaultPreStyle(bg)}>
-        <code className="code" id={`code-${randomId}`}>
-          {lines.map((l: IThemedToken[]) => (
-            <div key={l.toString()} className="line">
-              {l.map((token) => {
-                const cssDeclarations: CSSProperties = { color: token.color || options.fg };
-                if (token.fontStyle & FontStyle.Italic) {
-                  cssDeclarations.fontStyle = "italic";
-                }
-                if (token.fontStyle & FontStyle.Bold) {
-                  cssDeclarations.fontWeight = "bold";
-                }
-                if (token.fontStyle & FontStyle.Underline) {
-                  cssDeclarations.textDecoration = "underline";
-                }
-                return (
-                  <span key={token.content} style={cssDeclarations}>
-                    {token.content}
-                  </span>
-                );
-              })}
-            </div>
-          ))}
-        </code>
-      </pre>
+      <ToolBar Language={LanguageId} CopyButton={CopyButton} />
+      <CodeBlock
+        dataId={randomId}
+        lines={lines}
+        className={`${classPrefix}${langId}`}
+        style={defaultPreStyle(bg, fg)}
+      />
     </div>
   );
 
-  return render(node);
+  return renderToString(node);
 }
