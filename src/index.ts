@@ -21,14 +21,19 @@ export interface RemarkNode extends Node {
 
 export default async (
   { markdownAST }: any,
-  { theme = "nord", classPrefix = "language-", aliases = {}, langId = true }: Options
+  { theme = "nord", classPrefix = "shiki", aliases = {}, langId = true }: Options
 ) => {
   /**
-   * get aliases language name
+   * get language name of aliases language name
    */
   function getLang(lang: string): Lang {
-    const ret = lang?.toLowerCase() as Lang;
-    return aliases[lang] || ret || undefined;
+    const lowerCaseLang = lang?.toLowerCase();
+    if (BUNDLED_LANGUAGES.map((item) => item.id).includes(lowerCaseLang)) {
+      return lowerCaseLang as Lang;
+    } else if (lowerCaseLang in aliases) {
+      return aliases[lang];
+    }
+    return undefined;
   }
 
   const highlighter = await getHighlighter({ theme, langs: [...BUNDLED_LANGUAGES] });
@@ -43,8 +48,9 @@ export default async (
     node.children = undefined;
     if (!node.lang) {
       node.value = `<pre class="shiki-unknown"><code>${code}</code></pre>`;
+    } else {
+      // langId for before alias
+      node.value = renderToHtml(token, { langId: node.lang, fg, bg, classPrefix });
     }
-    // langId for before alias
-    node.value = renderToHtml(token, { langId: langId ? node.lang : null, fg, bg, classPrefix });
   });
 };
