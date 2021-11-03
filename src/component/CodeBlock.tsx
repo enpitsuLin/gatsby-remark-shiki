@@ -6,12 +6,11 @@ interface Props extends React.HTMLAttributes<HTMLPreElement> {
   lines: IThemedToken[][];
   dataId: number;
 }
-const { Consumer } = OptionsContext;
 
 const CodeBlock: React.FC<Props> = (props) => {
   const { lines, dataId, ...attr } = props;
   return (
-    <Consumer>
+    <OptionsContext.Consumer>
       {(options) => (
         <pre {...attr}>
           <code id={`code-${dataId}`} className={`${options.classPrefix}-code`}>
@@ -34,7 +33,7 @@ const CodeBlock: React.FC<Props> = (props) => {
           </code>
         </pre>
       )}
-    </Consumer>
+    </OptionsContext.Consumer>
   );
 };
 
