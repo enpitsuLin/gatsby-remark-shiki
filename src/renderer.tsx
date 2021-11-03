@@ -29,8 +29,8 @@ export function renderToHtml(lines: IThemedToken[][], options: HtmlRendererOptio
         <CodeBlock
           dataId={randomId}
           lines={lines}
-          className={`${classPrefix}${langId}`}
-          style={{ backgroundColor: bg, color: fg }}
+          style={{ backgroundColor: bg, color: fg, padding: "0.725rem 0.725rem" }}
+          className={`${classPrefix}-${langId}`}
         />
       </div>
     </OptionsContext.Provider>

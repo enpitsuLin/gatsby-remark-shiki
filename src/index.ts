@@ -47,7 +47,7 @@ export default async (
     node.type = "html";
     node.children = undefined;
     if (!node.lang) {
-      node.value = `<pre class="shiki-unknown"><code>${code}</code></pre>`;
+      node.value = `<pre class="${classPrefix}-unknown"><code>${code}</code></pre>`;
     } else {
       // langId for before alias
       node.value = renderToHtml(token, { langId: node.lang, fg, bg, classPrefix });
