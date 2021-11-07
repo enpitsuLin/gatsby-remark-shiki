@@ -2,13 +2,13 @@
 
 [![npm](https://badgen.net/npm/v/@enpitsulin/gatsby-remark-shiki)](https://www.npmjs.com/package/@enpitsulin/gatsby-remark-shiki)
 
-A plugin to syntax highlighting code blocks with gatsby-transform-remark for [Gatsby](https://www.gatsbyjs.org/) that uses [shiki](https://github.com/shikijs/shiki)
+将 [Gatsby](https://www.gatsbyjs.org/) 的插件`gatsby-transform-remark`渲染出的的代码块使用[shiki](https://github.com/shikijs/shiki)高亮代码的插件
 
-[中文](./README.CN.md)|English
+中文|[English](./README.md)
 
-# Getting started
+# 起步
 
-Install the package
+安装`@enpitsulin/gatsby-remark-shiki`包
 
 ```shell
 npm install @enpitsulin/gatsby-remark-shiki
@@ -16,7 +16,7 @@ npm install @enpitsulin/gatsby-remark-shiki
 yarn add @enpitsulin/gatsby-remark-shiki
 ```
 
-Add to your `gatsby-config.js`
+然后增加配置到你的 `gatsby-config.js`
 
 ```javascript
 {
@@ -47,7 +47,7 @@ Add to your `gatsby-config.js`
 }
 ```
 
-Then you can write code in your markdown file like this:
+然后在 markdown 文件中如下标记你代码块的语言
 
 ````
 ```javascript
@@ -57,29 +57,29 @@ function funName() {
 ```
 ````
 
-# Options
+# 选项
 
-You can configure the plugin option to change theme or alias a language
+可以配置插件选项来更换主题或者顶一个一个语言的别名。
 
-# Multi Theme Support
+# 多主题支持
 
-You can use built-in code highlight theme by change theme option, for example.
+可以通过选项来切换一些内置的 shiki 高亮主题，比如
 
 ```javascript
 {
-  theme: "one-dark-pro"; //default 'nord';
+  theme: "one-dark-pro"; //默认为 'nord';
 }
 ```
 
-You can preview some of these themes on [https://vscodethemes.com/](https://vscodethemes.com/)
+可以在[https://vscodethemes.com/](https://vscodethemes.com/)预览其渲染效果
 
-## Theming with theme file
+## 使用单独的文件配置主题
 
 To Do
 
-## Theming with CSS variables
+## 使用 css 变量配置主题
 
-First change theme option to `css-variables`,than create css which define these CSS variables file and require it in your `gatsby-browser.js`, e.g.
+首先将主题选项设置为`css-variables`,然后新建一个 css 文件来定义所需的 css 变量，然后将其通过`gatsby-browser.js`引入你的项目,e.g.
 
 ```css
 /* shiki-variables */
@@ -103,9 +103,9 @@ First change theme option to `css-variables`,than create css which define these 
 require("path/to/shiki-variables.css");
 ```
 
-# Language Alias
+# 语言别名
 
-This lets you set up language aliases. For example, settings below will let you use the language `superscript` which will highlight using the `javascript` highlighter
+可以通过选项配置一个语言的别名，比如如下配置能够让你使用类似`superscript`的方式获得`javascript`的高亮效果
 
 ```javascript
 {
@@ -115,10 +115,10 @@ This lets you set up language aliases. For example, settings below will let you 
 }
 ```
 
-# Contributing
+# 贡献代码
 
 > To do
 
-# License
+# 开源协议
 
 MIT © [enpitsuLin](https://github.com/enpitsuLin)
